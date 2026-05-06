@@ -5,9 +5,16 @@ const http = require('http')
 function requestController(req, res) {
     console.log('Bienvenidos al curso')
     
-    // Esto es lo que verá el profesor cuando abra tu link de Render
-    res.setHeader('Content-Type', 'text/plain')
-    res.end('Servidor funcionando correctamente en la nube!')
+    // Configuramos para que el navegador entienda que es texto con formato
+    res.setHeader('Content-Type', 'text/html; charset=utf-8')
+    
+    // Aquí escribe lo que quieres que aparezca en la página
+    res.end(`
+        <h1>Despliegue Exitoso</h1>
+        <p><strong>Estudiante:</strong> Johan David Vallejos Vilcape</p>
+        <p><strong>Proyecto:</strong> Despliegue 01 - Backend</p>
+        <p><strong>Estado:</strong> Servidor corriendo en Render</p>
+    `)
 }
 
 const server = http.createServer(requestController)
